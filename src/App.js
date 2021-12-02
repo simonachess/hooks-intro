@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import GreenButton from './components/GreenButton';
+import RedButton from './components/RedButton';
 
 function App() {
+
+  const [buttonCount, setButtonCount] = useState(31);
+
+  const plus = () => {
+    setButtonCount(buttonCount + 1);
+  }
+
+  const [redButtonCount, setRedButtonCount] = useState(47);
+
+  const minus = () => {
+    setRedButtonCount(redButtonCount - 1);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>Labas rytas</div>
+      <GreenButton buttonCount={redButtonCount} plus={plus} />
+      <RedButton count={buttonCount} minus={minus} />
     </div>
   );
 }
